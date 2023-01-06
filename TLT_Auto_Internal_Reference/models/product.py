@@ -14,7 +14,7 @@ class ProductTemplate(models.Model):
             categ_product_type = self.env['product.category'].browse(categ_id).product_type if categ_id else ''
             if categ_product_type and product_type and categ_product_type != product_type:
                 vals_list['detailed_type'] = categ_product_type
-                raise UserError("You can't choose product type different than Category product type !")
+                raise UserError("You Can't Choose Product Type Different Than Category Product Type !")
             elif categ_product_type and not product_type:
                 vals_list['detailed_type'] = categ_product_type
         return super(ProductTemplate, self).create(vals_list)
@@ -24,7 +24,7 @@ class ProductTemplate(models.Model):
         product_type = vals.get('detailed_type', False)
         categ_product_type = self.env['product.category'].browse(categ_id).product_type if categ_id else ''
         if product_type and categ_product_type and product_type != categ_product_type:
-            raise UserError("You can't choose product type different than Category product type !")
+            raise UserError("You Can't Choose Product Type Different Than Category Product Type !")
         elif categ_product_type and not product_type:
             vals['detailed_type'] = categ_product_type
         return super(ProductTemplate, self).write(vals)
@@ -40,7 +40,7 @@ class ProductProduct(models.Model):
             categ_product_type = self.env['product.category'].browse(categ_id).product_type if categ_id else ''
             if categ_product_type and product_type and categ_product_type != product_type:
                 vals_list['detailed_type'] = categ_product_type
-                raise UserError("You can't choose product type different than Category product type !")
+                raise UserError("You Can't Choose Product Type Different Than Category Product Type !")
             elif categ_product_type and not product_type:
                 vals_list['detailed_type'] = categ_product_type
         record = super(ProductProduct, self).create(vals_list)
@@ -56,7 +56,7 @@ class ProductProduct(models.Model):
         product_type = vals.get('detailed_type', False)
         categ_product_type = self.env['product.category'].browse(categ_id).product_type if categ_id else ''
         if product_type and categ_product_type and product_type != categ_product_type:
-            raise UserError("You can't choose product type different than Category product type !")
+            raise UserError("You Can't Choose Product Type Different Than Category Product Type !")
         elif categ_product_type and not product_type:
             vals['detailed_type'] = categ_product_type
         return super(ProductProduct, self).write(vals)
