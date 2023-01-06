@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="product_category_form_view" model="ir.ui.view">
+            <field name="name">product.category.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group[@name='first']" position="after">
+                    <group string="Auto Product Sequence">
+                        <field name="product_sequence_id"/>
+                        <field name="apply_on_barcode"  force_save="True" attrs="{'readonly': [('product_sequence_id', '=', False)]}"/>
+                        <field name="product_type"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
